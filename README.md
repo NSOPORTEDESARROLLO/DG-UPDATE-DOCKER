@@ -6,6 +6,7 @@ Update Digital Ocean DNS register
 Not volumes needed but you can map:
 
 -v /tmp/tmp
+
 -v /etc/localtime:/localtime:ro
 
 
@@ -13,7 +14,11 @@ Not volumes needed but you can map:
 #Environment:
 
 TOKEN = Token on Digital Ocean
+
 DOMAIN = Domain name 
+
 TYPE = Register type ( A, AAAA)
+
 REGISTER = Register name, example: home
+
 TIME = Seconds to update if not defined it will set to 300s (5 mins)
