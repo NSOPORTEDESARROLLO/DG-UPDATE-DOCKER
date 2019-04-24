@@ -1,0 +1,47 @@
+#!/bin/bash
+
+
+##Check Environment:
+if [ "$TOKEN" = "" ];then
+	echo "Error: Env TOKEN not defined........!"
+	exit 1
+fi
+
+if [ "$DOMAIN" = "" ];then
+        echo "Error: Env DOMAIN not defined........!"
+        exit 1
+fi
+
+
+if [ "$REGISTER" = "" ];then
+        echo "Error: Env REGISTER not defined........!"
+        exit 1
+fi
+
+if [ "$TYPE" = "" ];then
+        echo "Error: Env TYPE not defined........!"
+        exit 1
+fi
+
+if [ "$TIME" = "" ];then
+        NEWTIME=300
+else
+	NEWTIME=$TIME
+fi
+
+echo ""
+echo ""
+echo " Updating each $NEWTIME seconds"
+echo ""
+echo ""
+
+
+while true; do
+
+	echo ""
+	echo "################################"
+	echo "$(date)........................ Updating DNS Register"
+	/usr/bin/updater.py $TOKEN $DOMAIN $REGISTER $TYPE
+	echo "###############################"
+	sleep $NEWTIME
+done
